@@ -1,33 +1,23 @@
 package katas.fizzBuzz;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class FizzBuzz {
+
+
+    private List<Rule> rules = new ArrayList<Rule>(Arrays.asList(new FizzBuzzRule(),new FizzRule(), new BuzzRule()));
+
 
     public String getFizzBuzz(int value){
 
-       switch (getMultiplier(value)){
-           case 3:{
-               return "Fizz";
-           }
-           case 5:{
-               return "Buzz";
-           }
-           case 15:{
-               return "FizzBuzz";
-           }
-           default: return String.valueOf(value);
-       }
-    }
+        StringBuilder fizzBuzzMessage = new StringBuilder();
 
-    private int getMultiplier(int value) {
-
-        if(value % 3 == 0 && value % 5 == 0){
-            return 15;
-        } else if (value % 3 == 0){
-            return 3;
-        } else if (value % 5 == 0) {
-            return 5;
+        for (Rule rule:rules) {
+            fizzBuzzMessage.append(rule.applyTranslation(value));
         }
-        return  value;
-    }
 
+        return fizzBuzzMessage.toString();
+    }
 }

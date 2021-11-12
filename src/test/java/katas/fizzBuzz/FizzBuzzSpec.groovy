@@ -20,5 +20,6 @@ class FizzBuzzSpec extends Specification{
              4    || "4"
              15   || "FizzBuzz"
              6    || "Fizz"
+             45   || "FizzBuzz"
     }
 }
